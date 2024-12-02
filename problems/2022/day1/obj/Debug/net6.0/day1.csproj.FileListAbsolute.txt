@@ -1,0 +1,15 @@
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.csproj.AssemblyReference.cache
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.GeneratedMSBuildEditorConfig.editorconfig
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.AssemblyInfoInputs.cache
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.AssemblyInfo.cs
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.csproj.CoreCompileInputs.cache
+E:\liaml\Programming\aoc\problems\2022\day1\bin\Debug\net6.0\day1.exe
+E:\liaml\Programming\aoc\problems\2022\day1\bin\Debug\net6.0\day1.deps.json
+E:\liaml\Programming\aoc\problems\2022\day1\bin\Debug\net6.0\day1.runtimeconfig.json
+E:\liaml\Programming\aoc\problems\2022\day1\bin\Debug\net6.0\day1.dll
+E:\liaml\Programming\aoc\problems\2022\day1\bin\Debug\net6.0\day1.pdb
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.dll
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\refint\day1.dll
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.pdb
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\day1.genruntimeconfig.cache
+E:\liaml\Programming\aoc\problems\2022\day1\obj\Debug\net6.0\ref\day1.dll

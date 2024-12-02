@@ -1,0 +1,14 @@
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\bin\Debug\net8.0\day1.exe
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\bin\Debug\net8.0\day1.deps.json
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\bin\Debug\net8.0\day1.runtimeconfig.json
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\bin\Debug\net8.0\day1.dll
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\bin\Debug\net8.0\day1.pdb
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.AssemblyInfoInputs.cache
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.AssemblyInfo.cs
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.csproj.CoreCompileInputs.cache
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.dll
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\refint\day1.dll
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.pdb
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\day1.genruntimeconfig.cache
+C:\Users\liamb\Documents\Programming\aoc-main\problems\2024\day1\obj\Debug\net8.0\ref\day1.dll

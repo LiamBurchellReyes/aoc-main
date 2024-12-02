@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "tpisCLMqaFiTM4NBImS0IrvxipUlIettUjgHuQo01CkqHyJIcPG6ufogBTd2Lut89Rpa+o+KXB78O59zfZMPnw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\liamb\\Documents\\Programming\\aoc-main\\problems\\2022\\day3\\day3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\liamb\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\liamb\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\liamb\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\liamb\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+  ],
+  "logs": []
+}
