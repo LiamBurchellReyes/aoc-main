@@ -162,26 +162,28 @@ public class Program
 
         bool shouldReturn = false;
 
-        Console.WriteLine("Checking line: " + line);
+        //Console.WriteLine("Checking line: " + line);
 
         for (int i = 0; i < pageNums.Count; i++)
         {
             int num = pageNums[i];
 
+            // If there is an incorrectly-ordered update, it is caught here, then ordered correctly.
             if (exclusions.ContainsKey(num))
             {
                 shouldReturn = true;
-                Console.WriteLine(num + " in exclusions. Swapping " + num + " backwards with " + exclusions[num][0]);
-                // At 13, we add 29 to exclusions.
-                // Now we're at 29. num = 29
-                // exclusions[num] = 13
+                //Console.WriteLine(num + " in exclusions. Swapping " + num + " backwards with " + exclusions[num][0]);
+
                 int firstVal = exclusions[num][0]; // 13
                 int secondVal = num;    // 29
 
-                // We're at 29. We need to move 29 before 13.
-                // pageNums.IndexOf(firstVal) = 1
                 pageNums[pageNums.IndexOf(firstVal)] = secondVal;
                 pageNums[i] = firstVal;
+
+                // Restart from the beginning in case another rule breaks
+                exclusions.Clear();
+                i = 0;
+                continue;
             }
 
             if (rules.ContainsKey(num))
@@ -194,11 +196,11 @@ public class Program
                     if (!exclusions.ContainsKey(rule))
                     {
                         exclusions.Add(rule, new List<int>());
-                        exclusions[rule].Add(rules[num][0]);
+                        exclusions[rule].Add(num);
                     }
                     else
                     {
-                        exclusions[rule].Add(rules[num][0]);
+                        exclusions[rule].Add(num);
                     }
                 }
             }
@@ -216,6 +218,139 @@ public class Program
     public static void Main(string[] args)
     {
         //day5part1("..\\..\\..\\day5input.txt");
-        day5part2("..\\..\\..\\day5testinput.txt");
+        //day5part2("..\\..\\..\\day5input.txt");
+        day5part2_att2("..\\..\\..\\day5input.txt");
+    }
+
+
+    static void day5part2_att2(string path)
+    {
+        string[] lines = File.ReadAllLines(path);
+
+        // Key: a number
+        // Value: list of numbers that MUST come BEFORE the key
+        Dictionary<int, List<int>> rules = new Dictionary<int, List<int>>();
+
+        bool settingRules = true;
+        int result = 0;
+
+        foreach (string line in lines)
+        {
+            if (line == "")
+            {
+                settingRules = false;
+                continue;
+            }
+            if (settingRules)
+            {
+                string[] rule = line.Split('|');
+                int leftNum = Int32.Parse(rule[0]);
+                int rightNum = Int32.Parse(rule[1]);
+                if (!rules.ContainsKey(rightNum))
+                {
+                    //Console.WriteLine("Adding that " + rightNum + " must come after " + leftNum);
+                    rules.Add(rightNum, new List<int>());
+                    rules[rightNum].Add(leftNum);
+                }
+                else
+                {
+                    //Console.WriteLine("Adding that " + rightNum + " must come after " + leftNum);
+                    rules[rightNum].Add(leftNum);
+                }
+            }
+            else
+            {
+                result += GetCorrectedUpdateResult_att2(line, rules);
+            }
+
+        }
+
+        Console.WriteLine("End result: " + result);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="line">Input string, a list of numbers</param>
+    /// <param name="rules">Key: a number; Value: list of numbers that MUST come BEFORE the key</param>
+    /// <returns>The middle value of corrected updates</returns>
+    public static int GetCorrectedUpdateResult_att2(string line, Dictionary<int, List<int>> rules)
+    {
+        string[] pageNumsAsStr = line.Split(',');
+        List<int> pageNums = new List<int>();
+        foreach (string pageNum in pageNumsAsStr)
+        {
+            pageNums.Add(Int32.Parse(pageNum));
+        }
+
+        // Step 1: find out if it is correctly ordered
+        // Early return if the update is correctly ordered
+        if (IsCorrectlyOrdered(pageNums, rules))
+        {
+            //Console.WriteLine("Early return for line: " + line);
+            return 0;
+        }
+
+        // Correct the order
+
+        // Item1: The number that may cause an improper order
+        // Item2: The (first) number to swap with
+        do
+        {
+            Dictionary<int, int> exclusions = new Dictionary<int, int>();
+            for (int i = 0; i < pageNums.Count; i++)
+            {
+                if (exclusions.ContainsKey(pageNums[i]))
+                {
+                    Swap(ref pageNums, pageNums.IndexOf(exclusions[pageNums[i]]), pageNums.IndexOf(pageNums[i]));
+                    // Restart from the beginning in case another rule breaks
+                    exclusions.Clear();
+                    i = 0;
+                    continue;
+                }
+                if (rules.ContainsKey(pageNums[i]))
+                {
+                    foreach (int rule in rules[pageNums[i]])
+                    {
+                        if (!exclusions.ContainsKey(rule))
+                        {
+                            exclusions.Add(rule, pageNums[i]);
+                        }
+                    }
+                }
+            }
+        }
+        while (!IsCorrectlyOrdered(pageNums, rules));
+
+        int middleNumber = pageNums[(pageNums.Count - 1)/2];
+        return middleNumber;
+    }
+
+    public static bool IsCorrectlyOrdered(List<int> update, Dictionary<int, List<int>> rules)
+    {
+        List<int> exclusions = new List<int>();
+        foreach (int pageNum in update)
+        {
+            if (exclusions.Contains(pageNum))
+            {
+                return false;
+            }
+            if (rules.ContainsKey(pageNum))
+            {
+                // If a number is part of a rule, add all numbers which CAN'T legally be AFTER it to the exclusions
+                foreach (int rule in rules[pageNum])
+                {
+                    exclusions.Add(rule);
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void Swap(ref List<int> list, int firstIndex, int secondIndex)
+    {
+        int temp = list[firstIndex];
+        list[firstIndex] = list[secondIndex];
+        list[secondIndex] = temp;
     }
 }
