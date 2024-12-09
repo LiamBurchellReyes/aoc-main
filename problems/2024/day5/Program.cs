@@ -1,7 +1,7 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using System.Xml.XPath;
 
-namespace Day4;
+namespace Day5;
 public class Program
 {
     static void day5part1(string path)
